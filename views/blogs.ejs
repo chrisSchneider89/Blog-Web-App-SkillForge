@@ -1,0 +1,40 @@
+<%- include("partials/header.ejs")%>
+<body>
+  <div class="create_blog">
+    <% if (locals.blogEdit) {%>
+    <form action="/editBlog" method="post">
+      <input
+        class="author"
+        type="text"
+        name="author"
+        value=" <%= blogEdit.author %>"
+      />
+      <input
+        class="title"
+        type="text"
+        name="title"
+        value=" <%= blogEdit.title %>"
+      />
+      <textarea
+        class="content"
+        type="text"
+        name="content"
+      /><%= blogEdit.content %></textarea>
+      <input class="btn_submit" type="submit" value="Save" />
+    </form>
+    <% } else { %>
+    <form action="/blog" method="post">
+      <input class="author" type="text" name="author" placeholder="Autor" />
+      <input class="title" type="text" name="title" placeholder="Titel" />
+      <textarea
+        class="content"
+        type="text"
+        name="content"
+        placeholder="Blogeintrag"
+      /></textarea>
+      <input class="btn_submit" type="submit" value="Erstellen" />
+    </form>
+    <% } %>
+  </div>
+</body>
+<%- include("partials/footer.ejs")%>
